@@ -1,6 +1,8 @@
 import pickle
 import re
 
+import joblib
+
 
 def clean_text(text):
     text = text.lower()
@@ -8,12 +10,12 @@ def clean_text(text):
 
 
 def load_all():
-    with open("model/trained_model.pkl", "rb") as f:
-        model = pickle.load(f)
+    with open("model/ensemble_model.pkl", "rb") as f:
+        model = joblib.load(f)
     with open("model/vectorizer.pkl", "rb") as f:
-        vectorizer = pickle.load(f)
-    with open("model/label_encoder.pkl", "rb") as f:
-        label_encoder = pickle.load(f)
+        vectorizer = joblib.load(f)
+    with open("model/le.pkl", "rb") as f:
+        label_encoder = joblib.load(f)
     return model, vectorizer, label_encoder
 
 
