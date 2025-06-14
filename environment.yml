@@ -1,0 +1,11 @@
+name: enhesa
+channels:
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+  - https://repo.anaconda.com/pkgs/msys2
+dependencies:
+  - numpy
+  - pandas
+  - scikit-learn
+  - python=3.11
+prefix: D:\program\miniconda3\envs\enhesa
