@@ -90,8 +90,3 @@ The API will return a JSON response with the prediction, for example:
 
 ---
 
-## Notes
-
-- Replace `"your text to analyze"` with your actual input text.
-- Make sure the API server is running at `http://localhost:8000`.
-- For large texts, ensure your client supports sending long strings in the request body.
