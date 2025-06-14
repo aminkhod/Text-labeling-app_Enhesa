@@ -6,7 +6,7 @@ This project is a text classification application built with Python. It provides
 
 ## Features
 
-- **Text classification** using multiple machine learning models (Logistic Regression, Random Forest, Gradient Boosting, Linear SVC, and an ensemble Voting Classifier)
+- **Text classification** using multiple machine learning models ( Random Forest, Gradient Boosting, Linear SVC, and an ensemble Voting Classifier)
 - **REST API** for programmatic access (built with FastAPI)
 - **Web UI** for interactive use (built with Gradio)
 - **Model saving/loading** for reproducible results
@@ -18,7 +18,7 @@ This project is a text classification application built with Python. It provides
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/Text-labeling-app_Enhesa.git
+git clone https://github.com/aminkhod/Text-labeling-app_Enhesa.git
 cd Text-labeling-app_Enhesa
 ```
 
@@ -26,7 +26,7 @@ cd Text-labeling-app_Enhesa
 
 ```bash
 conda env create -f environment.yml
-conda activate text-labeling-app
+conda activate enhesa
 ```
 
 ### 3. Install Additional Dependencies (if needed)
@@ -81,6 +81,16 @@ Invoke-RestMethod -Uri "http://localhost:8000/predict" `
   -ContentType "application/json"
 ```
 
+---
+
+#### Response Example
+
+```bash
+prediction
+----------
+cult
+```
+
 #### curl Example
 
 ```bash
@@ -98,29 +108,3 @@ curl -X POST "http://localhost:8000/predict" \
 ```
 
 ---
-
-## Saving and Loading Models
-
-Models are saved using `joblib`:
-
-```python
-import joblib
-
-# Save a model
-joblib.dump(model, 'model_filename.pkl')
-
-# Load a model
-model = joblib.load('model_filename.pkl')
-```
-
----
-
-## Contributing
-
-Feel free to open issues or submit pull requests!
-
----
-
-## License
-
-This project is licensed under
