@@ -1,53 +1,70 @@
-# README
+# Text Labeling App (Enhesa)
+
+This project is a text classification application built with Python. It provides both a REST API and a user interface for predicting labels for input text using machine learning models.
+
+---
+
+## Features
+
+- **Text classification** using multiple machine learning models (Logistic Regression, Random Forest, Gradient Boosting, Linear SVC, and an ensemble Voting Classifier)
+- **REST API** for programmatic access (built with FastAPI)
+- **Web UI** for interactive use (built with Gradio)
+- **Model saving/loading** for reproducible results
+
+---
 
 ## Setup Instructions
 
-To create the conda environment for this project, run:
+### 1. Clone the Repository
 
+```bash
+git clone https://github.com/yourusername/Text-labeling-app_Enhesa.git
+cd Text-labeling-app_Enhesa
 ```
+
+### 2. Create the Conda Environment
+
+```bash
 conda env create -f environment.yml
+conda activate text-labeling-app
 ```
 
-This will install all required dependencies as specified in the `environment.yml`
+### 3. Install Additional Dependencies (if needed)
 
+If you use pip, install requirements with:
 
-## Building and Running
-
-Build the image
+```bash
+pip install -r requirements.txt
 ```
-docker build -t text-classifier-app .
-```
-
-Run FastAPI app
-```
-docker run -p 8000:8000 text-classifier-app
-```
-
-Run Gradio app
-
-```
-docker run -p 7860:7860 text-classifier-app python app/gradio_app.py
-```
-
-# REST API Usage Guide
-
-## Overview
-
-This project provides a REST API for text prediction. You can send a POST request with your text, and the API will return a prediction.
 
 ---
 
-## Endpoint
+## Running the Application
 
-- **URL:** `http://localhost:8000/predict`
-- **Method:** `POST`
+### Start the REST API
+
+```bash
+uvicorn app:app --reload
+```
+- The API will be available at: `http://localhost:8000`
+
+### Start the Gradio Web UI
+
+```bash
+python gradio_app.py
+```
+- The UI will open in your browser.
+
+---
+
+## Using the REST API
+
+### Endpoint
+
+- **POST** `/predict`
 - **Content-Type:** `application/json`
 
----
-
-## Request Format
-
-Send a JSON object with a `text` field:
+#### Request Example
 
 ```json
 {
@@ -55,9 +72,7 @@ Send a JSON object with a `text` field:
 }
 ```
 
----
-
-## Example Using PowerShell
+#### PowerShell Example
 
 ```powershell
 Invoke-RestMethod -Uri "http://localhost:8000/predict" `
@@ -65,18 +80,8 @@ Invoke-RestMethod -Uri "http://localhost:8000/predict" `
   -Body '{"text": "your text to analyze"}' `
   -ContentType "application/json"
 ```
----
 
-## Response
-```bash
-prediction
-----------
-cult
-```
-
----
-
-## Example Using `curl`
+#### curl Example
 
 ```bash
 curl -X POST "http://localhost:8000/predict" \
@@ -84,11 +89,7 @@ curl -X POST "http://localhost:8000/predict" \
   -d '{"text": "your text to analyze"}'
 ```
 
----
-
-## Response
-
-The API will return a JSON response with the prediction, for example:
+#### Response Example
 
 ```json
 {
@@ -97,3 +98,29 @@ The API will return a JSON response with the prediction, for example:
 ```
 
 ---
+
+## Saving and Loading Models
+
+Models are saved using `joblib`:
+
+```python
+import joblib
+
+# Save a model
+joblib.dump(model, 'model_filename.pkl')
+
+# Load a model
+model = joblib.load('model_filename.pkl')
+```
+
+---
+
+## Contributing
+
+Feel free to open issues or submit pull requests!
+
+---
+
+## License
+
+This project is licensed under
