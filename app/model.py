@@ -1,6 +1,8 @@
 import pickle
 import re
+import warnings
 
+warnings.filterwarnings("ignore", category=UserWarning)
 import joblib
 
 

@@ -1,6 +1,6 @@
 import gradio as gr
 
-from app.model import load_all, predict_label
+from model import load_all, predict_label
 
 model, vectorizer, label_encoder = load_all()
 

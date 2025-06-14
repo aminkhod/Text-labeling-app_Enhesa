@@ -65,6 +65,14 @@ Invoke-RestMethod -Uri "http://localhost:8000/predict" `
   -Body '{"text": "your text to analyze"}' `
   -ContentType "application/json"
 ```
+---
+
+## Response
+```bash
+prediction
+----------
+cult
+```
 
 ---
 
@@ -89,4 +97,3 @@ The API will return a JSON response with the prediction, for example:
 ```
 
 ---
-
