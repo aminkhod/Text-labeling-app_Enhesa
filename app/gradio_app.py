@@ -12,4 +12,5 @@ def classify(text):
 demo = gr.Interface(
     fn=classify, inputs="textbox", outputs="label", title="Text Classifier"
 )
-demo.launch()
+
+demo.launch(server_name="0.0.0.0", server_port=7860)
