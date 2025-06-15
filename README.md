@@ -39,6 +39,49 @@ pip install -r requirements.txt
 
 ---
 
+## Docker
+
+### Build and Run
+```bash
+docker build -t text-classifier-app .
+```
+
+### FastAPI app
+#### To run the standard FastAPI app:
+```bash
+docker run -p 8000:8000 text-classifier-app
+
+```
+- The API will be available at: `http://localhost:8000`
+#### To run the RAG FastAPI app
+```bash
+docker run -p 8001:8001 text-classifier-app python -m uvicorn app.rag_api:app --host 0.0.0.0 --port 8001
+
+- Wait for downloading and loading the model (~500m)
+
+```
+- The API will be available at: `http://localhost:8001`
+
+### Gradio demo
+#### To run the Gradio demo (standard):
+```bash
+docker run -p 7860:7860 text-classifier-app python app/gradio_app.py
+
+```
+- The UI will open in your browser at : `http://localhost:7860`.
+
+#### To run the RAG Gradio demo:
+
+- Wait for downloading and loading the model (~500m)
+
+```bash
+docker run -p 7861:7861 text-classifier-app python app/rag_gradio_app.py
+```
+- The UI will open in your browser at : `http://localhost:7861`.
+
+
+---
+
 ## Running the Application
 
 ### Start the REST API
@@ -53,7 +96,7 @@ uvicorn app:app --reload
 ```bash
 python gradio_app.py
 ```
-- The UI will open in your browser.
+- The UI will open in your browser at : `http://localhost:7860`.
 
 ---
 
