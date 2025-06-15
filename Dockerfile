@@ -12,6 +12,9 @@ RUN apt-get update && apt-get install -y git && \
     rm -rf /root/.cache && \
     apt-get remove -y git && apt-get autoremove -y
 
+
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-mpnet-base-v2')"
+
 # Copy project files into the container
 COPY . .
 

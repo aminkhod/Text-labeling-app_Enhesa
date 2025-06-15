@@ -27,7 +27,9 @@ class RequestText(BaseModel):
 
 @app.post("/rag-predict")
 def predict(request: RequestText):
-    text_emb = model.encode(request.text)
+    clean_text = request.text.strip().replace("\n", " ").replace("\r", " ")
+
+    text_emb = model.encode(clean_text)
     sims = {
         label: cosine_similarity([text_emb], [emb])[0][0]
         for label, emb in label_embeddings.items()
