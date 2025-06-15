@@ -57,7 +57,7 @@ docker run -p 8000:8000 text-classifier-app
 ```bash
 docker run -p 8001:8001 text-classifier-app python -m uvicorn app.rag_api:app --host 0.0.0.0 --port 8001
 ```
-- Wait for downloading and loading the model (~500m)
+- Wait for downloading and loading the model (~500 MB)
 
 - The API will be available at: `http://localhost:8001`
 
@@ -75,7 +75,7 @@ docker run -p 7860:7860 text-classifier-app python app/gradio_app.py
 ```bash
 docker run -p 7861:7861 text-classifier-app python app/rag_gradio_app.py
 ```
-- Wait for downloading and loading the model (~500m)
+- Wait for downloading and loading the model (~500 MB)
 
 - The UI will open in your browser at : `http://localhost:7861`.
 
