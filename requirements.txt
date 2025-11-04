@@ -5,3 +5,4 @@ scikit-learn==1.6.1
 pandas
 sentence-transformers
 
+pillow>=10.0.0 # not directly required, pinned by Snyk to avoid a vulnerability
